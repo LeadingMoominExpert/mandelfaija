@@ -1,6 +1,6 @@
 (() => {
     // Create Canvas
-    var canvas = document.getElementById('canvas'),
+    var canvas = document.getElementById('mandelbrot'),
             ctx = canvas.getContext('2d');
     // Eventlistener to resize canvas 
     window.addEventListener('resize', resizeCanvas, false);
@@ -37,9 +37,9 @@
         return 0; // Not in the set
     }
     function drawMandel(zoom, panX, panY, color) {
-        for(var x=0; x < canvas.width; x++) {
-            for(var y=0; y < canvas.height; y++) {
-                var isInSet = isInMandel(x/zoom - panX, y/zoom - panY);
+        for(var x = 0; x < canvas.width; x++) {
+            for(var y = 0; y < canvas.height; y++) {
+                var isInSet = isInMandel(x / zoom - panX, y / zoom - panY);
                 if(isInSet === 0) {
                     ctx.fillStyle = '#000'; //black
                     ctx.fillRect(x, y, 1, 1);
